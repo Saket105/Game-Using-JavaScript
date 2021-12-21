@@ -157,11 +157,7 @@ const spawnEnemy = () => {
   const enemySize = Math.random() * (40 - 5) + 5;
 
   // generating random color for enemy
-  const enemyColor = `rgb(
-  ${Math.random() * 250},
-${Math.random() * 250},
-${Math.random() * 250}
-)`;
+  const enemyColor = `hsl(${Math.floor(Math.random() * 360)}, 100%, 50%)`;
 
   // Random enemy spawn position
   let random;
@@ -206,7 +202,11 @@ function animation() {
   animationId = requestAnimationFrame(animation);
 
   // clearing canvas on each frame
-  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.fillStyle = "rgba(49,49,49,0.2)";
+
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  // context.clearRect(0, 0, canvas.width, canvas.height);
   // drawing Player
   saket.draw();
 
@@ -247,14 +247,24 @@ function animation() {
       );
 
       if (distanceBetweenWeaponAndEnemy - weapon.radius - enemy.radius < 1) {
-        setTimeout(() => {
-          enemies.splice(enemyIndex, 1);
-          weapons.splice(weaponIndex, 1);
-        }, 0);
+        if (enemy.radius > 18) {
+          gsap.to(enemy, {
+            radius: enemy.radius - 10,
+          });
+          setTimeout(() => {
+            weapons.splice(weaponIndex, 1);
+          }, 0);
+        } else {
+          setTimeout(() => {
+            enemies.splice(enemyIndex, 1);
+            weapons.splice(weaponIndex, 1);
+          }, 0);
+        }
       }
     });
   });
 }
+
 // setInterval(spawnEnemy, 1000);
 
 // ---------------------Adding Event Listeners--------------------------------------
@@ -269,8 +279,8 @@ canvas.addEventListener("click", (e) => {
 
   // Making const speed for light weapon
   const velocity = {
-    x: Math.cos(myAngle) * 3,
-    y: Math.sin(myAngle) * 3,
+    x: Math.cos(myAngle) * 6,
+    y: Math.sin(myAngle) * 6,
   };
 
   // Adding bullets in weapons array
