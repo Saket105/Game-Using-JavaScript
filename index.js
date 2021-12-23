@@ -16,10 +16,12 @@ const scoreBoard = document.querySelector(".scoreBoard");
 // Basic Functions
 
 // Event Listener for difficulty
+
 document.querySelector("input").addEventListener("click", (e) => {
   e.preventDefault();
 
   // making form invisible
+  
   form.style.display = "none";
 
   // making scoreboard visible
