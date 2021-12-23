@@ -146,6 +146,7 @@ class Enemy {
 
 // ---------------------- Main Logic Here --------------------------------------
 
+
 // Creating player object, weapons array, enemy array, etc array
 const saket = new Player(playerPosition.x, playerPosition.y, 15, "white");
 
@@ -153,6 +154,7 @@ const weapons = [];
 const enemies = [];
 
 // --------------------Function to spawn enemy at random location-----------------
+
 const spawnEnemy = () => {
   // generating random size for enemy
   const enemySize = Math.random() * (40 - 5) + 5;
@@ -165,6 +167,7 @@ const spawnEnemy = () => {
 
   // Making enemy location random but only from outside of screen
   if (Math.random() < 0.5) {
+    
     // Making x equal to very left off the screen or very right off the screen and setting Y to any where vertically
     random = {
       x: Math.random() < 0.5 ? canvas.width + enemySize : 0 - enemySize,
