@@ -13,15 +13,14 @@ let difficulty = 2;
 const form = document.querySelector("form");
 const scoreBoard = document.querySelector(".scoreBoard");
 
+
 // Basic Functions
 
 // Event Listener for difficulty
-
 document.querySelector("input").addEventListener("click", (e) => {
   e.preventDefault();
 
   // making form invisible
-  
   form.style.display = "none";
 
   // making scoreboard visible
@@ -47,7 +46,7 @@ document.querySelector("input").addEventListener("click", (e) => {
   }
 });
 
-// -----------------------------------------------------------------
+// --------------------------------------------------------------------------------------------
 
 // ---------------------creating player, enemy, weapon, etc classes-----------------
 
@@ -113,7 +112,7 @@ class Weapon {
   }
 }
 
-// // creating enemy class
+// creating enemy class
 
 class Enemy {
   constructor(x, y, radius, color, velocity) {
