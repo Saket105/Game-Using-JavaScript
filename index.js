@@ -8,6 +8,7 @@ const hugeWeaponSound = new Audio("./music/hugeWeapon.mp3");
 
 introMusic.play();
 // Basic Environment Setup
+
 const canvas = document.createElement("canvas");
 document.querySelector(".myGame").appendChild(canvas);
 canvas.width = innerWidth;
@@ -22,18 +23,25 @@ let playerScore = 0;
 // Basic Functions
 
 // Event Listener for Difficulty form
+
 document.querySelector("input").addEventListener("click", (e) => {
   e.preventDefault();
 
   // Stoping Music
+
   introMusic.pause();
 
   // making form invisble
+
   form.style.display = "none";
+
   // making scoreBoard visble
+
   scoreBoard.style.display = "block";
 
+
   //  getting diffculty selected by user
+
   const userValue = document.getElementById("difficulty").value;
 
   if (userValue === "Easy") {
@@ -54,7 +62,9 @@ document.querySelector("input").addEventListener("click", (e) => {
   }
 });
 
+
 // Endscreen
+
 const gameoverLoader = () => {
   // Creating endscreen div and play again button and high score element
   const gameOverBanner = document.createElement("div");
